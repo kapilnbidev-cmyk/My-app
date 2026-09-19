@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Star</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#080b22;color:white}
+.app{max-width:500px;margin:auto;min-height:100vh;background:#10143a}
+header{padding:18px;text-align:center;background:linear-gradient(135deg,#151b58,#ff1681)}
+.logo{font-size:32px;font-weight:bold}
+.logo span{color:#ff2a9d}
+.page{padding:18px}
+.card{background:#191d49;border-radius:18px;padding:20px;margin-bottom:18px}
+button{border:0;border-radius:25px;padding:14px 22px;font-size:16px;font-weight:bold;cursor:pointer}
+.primary{background:linear-gradient(90deg,#ff1681,#9c35ff);color:white;width:100%}
+input,textarea{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1px solid #555;background:#11152f;color:white}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:500px;width:100%;display:flex;justify-content:space-around;background:#11152f;padding:12px 5px;border-top:1px solid #333}
+.nav button{background:none;color:white;padding:6px;font-size:12px}
+.reel{height:520px;border-radius:20px;background:linear-gradient(160deg,#293b70,#11152d);display:flex;align-items:center;justify-content:center;font-size:70px;margin-bottom:15px}
+.stats{display:flex;justify-content:space-around;text-align:center;margin:20px 0}
+.stat b{display:block;font-size:22px}
+.hidden{display:none}
+.earning{font-size:38px;font-weight:bold;color:#ff3baf;text-align:center}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<header>
+<div class="logo">⭐ Video <span>Star</span></div>
+<small>हर Talent को मिले पहचान</small>
+</header>
+
+<div id="login" class="page">
+<div class="card">
+<h2>Welcome to Video Star</h2>
+<p>अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।</p>
+<input placeholder="Mobile Number">
+<input type="password" placeholder="Password">
+<button class="primary" onclick="show('home')">Login</button>
+<p style="text-align:center">या</p>
+<button class="primary" onclick="show('home')">Create New Account</button>
+</div>
+</div>
+
+<div id="home" class="page hidden">
+<h2>For You 🎬</h2>
+<div class="reel">▶️</div>
+<div class="card">
+<b>@VideoStar_Creator</b>
+<p>जिंदगी का सफर खूबसूरत है ✨</p>
+<button onclick="alert('Liked ❤️')">❤️ Like</button>
+<button onclick="alert('Shared 🔗')">↗ Share</button>
+</div>
+</div>
+
+<div id="upload" class="page hidden">
+<div class="card">
+<h2>📤 Upload Video</h2>
+<input type="file" accept="video/*">
+<textarea placeholder="Add Caption"></textarea>
+<input placeholder="#video #videostar #trending">
+<button class="primary" onclick="alert('Video upload शुरू हो गया')">Post Video</button>
+</div>
+</div>
+
+<div id="profile" class="page hidden">
+<div class="card" style="text-align:center">
+<div style="font-size:70px">👤</div>
+<h2>Kapil Dev</h2>
+<p>@kapil_creator</p>
+<div class="stats">
+<div class="stat"><b>125</b>Posts</div>
+<div class="stat"><b>18K</b>Followers</div>
+<div class="stat"><b>320</b>Following</div>
+</div>
+<button class="primary">Edit Profile</button>
+</div>
+</div>
+
+<div id="earnings" class="page hidden">
+<div class="card">
+<h2>💰 Earnings</h2>
+<p>Total Earnings</p>
+<div class="earning">₹12,450</div>
+<hr>
+<p>इस महीने: ₹4,320</p>
+<p>पिछला महीना: ₹3,980</p>
+<button class="primary" onclick="alert('Monetization information')">Learn More</button>
+</div>
+</div>
+
+<div class="nav">
+<button onclick="show('home')">🏠<br>Home</button>
+<button onclick="show('home')">🎬<br>Reels</button>
+<button onclick="show('upload')">➕<br>Upload</button>
+<button onclick="show('earnings')">💰<br>Earnings</button>
+<button onclick="show('profile')">👤<br>Profile</button>
+</div>
+
+</div>
+
+<script>
+function show(id){
+document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
