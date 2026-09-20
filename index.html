@@ -8,315 +8,1517 @@
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;
- background:#080b2d;
- color:white;
- font-family:Arial,sans-serif;
+margin:0;
+font-family:Arial,sans-serif;
+background:#080d1b;
+color:#fff
 }
 header{
- padding:22px;
- text-align:center;
- background:linear-gradient(90deg,#7516a8,#ff168d);
+background:linear-gradient(135deg,#ff007a,#762cff);
+padding:18px;
+text-align:center;
+font-size:25px;
+font-weight:bold;
 }
-.logo{font-size:34px;font-weight:bold}
-.logo span{color:#ff72c0}
-.tag{margin-top:6px;font-size:18px}
-.app{max-width:500px;margin:auto;min-height:100vh}
-.page{padding:20px}
+.container{
+max-width:650px;
+margin:auto;
+padding:15px 15px 90px
+}
 .card{
- background:#191d49;
- border-radius:20px;
- padding:28px;
+background:#151d32;
+padding:18px;
+border-radius:18px;
+margin:15px 0;
+box-shadow:0 5px 20px #0006
 }
-h1{margin-top:0}
-input{
- width:100%;
- padding:15px;
- margin:8px 0;
- border-radius:14px;
- border:1px solid #777;
- background:#0e1235;
- color:white;
- font-size:16px;
+input,textarea,button{
+width:100%;
+padding:13px;
+margin:7px 0;
+border:0;
+border-radius:10px;
+font-size:15px
+}
+input,textarea{
+background:#252e46;
+color:white
 }
 button{
- width:100%;
- padding:15px;
- margin-top:12px;
- border:0;
- border-radius:28px;
- font-size:17px;
- font-weight:bold;
+background:linear-gradient(135deg,#ff007a,#762cff);
+color:white;
+font-weight:bold
 }
-.primary{
- background:linear-gradient(90deg,#ff168d,#a72cff);
- color:white;
-}
-.link{
- background:none;
- color:#ff72c0;
-}
+.secondary{background:#29344e}
+.danger{background:#d7193f}
 .hidden{display:none}
-.message{
- margin-top:12px;
- padding:10px;
- border-radius:10px;
- background:#292e60;
+.logo{
+font-size:55px;
+text-align:center
 }
-nav{
- position:fixed;
- bottom:0;
- left:50%;
- transform:translateX(-50%);
- width:100%;
- max-width:500px;
- display:flex;
- justify-content:space-around;
- background:#111536;
- padding:14px 5px;
+.center{text-align:center}
+.small{
+font-size:12px;
+color:#aeb6ca
 }
-nav button{
- background:none;
- color:white;
- margin:0;
- padding:5px;
- font-size:14px;
+.success{color:#40e68b}
+.warning{color:#ffd447}
+.error{color:#ff5577}
+.stat{
+display:inline-block;
+background:#242d46;
+padding:9px;
+border-radius:10px;
+margin:3px
+}
+.nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#111729;
+display:flex;
+justify-content:space-around;
+padding:7px;
+z-index:20
+}
+.nav button{
+background:none;
+padding:5px 2px;
+margin:0;
+font-size:12px
+}
+.video{
+background:#101625;
+border-radius:15px;
+margin:15px 0;
+padding:14px
+}
+.video video{
+width:100%;
+max-height:450px;
+border-radius:12px;
+background:#000
+}
+.actions{
+display:flex;
+gap:5px
+}
+.actions button{
+background:#252e46;
+font-size:12px;
+margin:4px 0
+}
+.progress{
+height:12px;
+background:#30384d;
+border-radius:20px;
+overflow:hidden
+}
+.progress div{
+height:100%;
+background:linear-gradient(90deg,#ff007a,#762cff);
+width:0%
+}
+hr{
+border:0;
+border-top:1px solid #30384d;
+margin:18px 0
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<header>⭐ VIDEO STAR</header>
 
-<header>
- <div class="logo">⭐ Video <span>Star</span></div>
- <div class="tag">हर Talent को मिले पहचान</div>
-</header>
-
-<div class="page">
+<div class="container">
 
 <!-- LOGIN -->
 <section id="loginPage">
+
 <div class="card">
-<h1>Welcome to Video Star 👋</h1>
-<p>अपने अकाउंट में Login करें</p>
 
-<input id="loginEmail" type="email" placeholder="Email">
-<input id="loginPassword" type="password" placeholder="Password">
+<div class="logo">⭐</div>
 
-<button class="primary" onclick="login()">Login</button>
+<h1 class="center">VIDEO STAR</h1>
 
-<button class="link" onclick="showRegister()">
-Create New Account
+<p class="center">हर Talent को मिले पहचान</p>
+
+<input id="loginEmail"
+type="email"
+placeholder="Email">
+
+<input id="loginPassword"
+type="password"
+placeholder="Password">
+
+<button onclick="login()">🔐 Login</button>
+
+<button class="secondary"
+onclick="showRegister()">
+📝 Create New Account
 </button>
 
-<div id="loginMsg" class="message hidden"></div>
+<p id="loginMsg"></p>
+
 </div>
+
 </section>
+
 
 <!-- REGISTER -->
 <section id="registerPage" class="hidden">
+
 <div class="card">
-<h1>Create New Account 🎉</h1>
 
-<input id="regName" placeholder="आपका नाम">
-<input id="regEmail" type="email" placeholder="Email">
-<input id="regPassword" type="password" placeholder="Password">
+<h2>📝 Create Account</h2>
 
-<button class="primary" onclick="register()">
-Create Account
+<input id="regName"
+placeholder="आपका नाम">
+
+<input id="regEmail"
+type="email"
+placeholder="Email">
+
+<input id="regPassword"
+type="password"
+placeholder="Password">
+
+<button onclick="register()">
+✅ Account बनाएं
 </button>
 
-<button class="link" onclick="showLogin()">
-Already have an account? Login
+<button class="secondary"
+onclick="showLogin()">
+⬅️ Login पर जाएं
 </button>
 
-<div id="registerMsg" class="message hidden"></div>
+<p id="registerMsg"></p>
+
 </div>
+
 </section>
+
+
+<!-- MAIN APP -->
+<section id="app" class="hidden">
+
 
 <!-- HOME -->
-<section id="homePage" class="hidden">
+<div id="homePage">
+
 <div class="card">
-<h1>Welcome to Video Star 👋</h1>
-<h2 id="welcomeName"></h2>
-<p>अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।</p>
-<button class="primary" onclick="logout()">Logout</button>
+
+<h2>
+नमस्ते,
+<span id="welcomeName"></span> 👋
+</h2>
+
+<p>
+अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।
+</p>
+
+<span class="stat">
+👤 <span id="followers">0</span>
+Followers
+</span>
+
+<span class="stat">
+🎥 <span id="videos">0</span>
+Videos
+</span>
+
+<span class="stat">
+👁️ <span id="views">0</span>
+Views
+</span>
+
+<span class="stat">
+⭐ <span id="homeStars">0</span>
+Stars
+</span>
+
 </div>
-</section>
+
+
+<div class="card">
+
+<h2>🎬 Video Feed</h2>
+
+<div id="videoFeed"></div>
+
+</div>
+
+</div>
+
+
+<!-- UPLOAD -->
+<div id="uploadPage" class="hidden">
+
+<div class="card">
+
+<h2>🎥 Video Upload</h2>
+
+<input
+id="videoTitle"
+placeholder="वीडियो का नाम">
+
+<input
+id="videoFile"
+type="file"
+accept="video/*">
+
+<div class="card">
+
+<h3>🛡️ Safety Rules</h3>
+
+<p class="small">
+✅ बच्चों की सामान्य Talent/Family वीडियो Allowed हैं।<br><br>
+🚫 नग्न वीडियो नहीं<br>
+🚫 अश्लील/यौन वीडियो नहीं<br>
+🚫 Graphic blood/gore नहीं<br>
+🚫 हिंसा को बढ़ावा देने वाला Content नहीं<br>
+🚫 चोरी की Copyright वीडियो नहीं<br>
+🚫 Fake Views/Likes नहीं
+</p>
+
+</div>
+
+<button onclick="uploadVideo()">
+🛡️ Safety Check & Publish
+</button>
+
+<p id="uploadMsg"></p>
+
+</div>
+
+</div>
+
+
+<!-- STARS -->
+<div id="starsPage" class="hidden">
+
+<div class="card">
+
+<h2>⭐ Stars</h2>
+
+<h3>
+आपके Stars:
+<span id="myStars">0</span>
+</h3>
+
+<button onclick="sendStars(1)">
+⭐ 1 Star भेजें
+</button>
+
+<button onclick="sendStars(5)">
+⭐ 5 Stars भेजें
+</button>
+
+<hr>
+
+<h3>
+📥 Received Stars
+</h3>
+
+<p>
+⭐ <span id="receivedStars">0</span>
+</p>
+
+<h3>
+📜 Star History
+</h3>
+
+<div id="starHistory"></div>
+
+<p class="small">
+Demo Stars हैं। Real Stars और Real Money के लिए
+Backend और Payment System आवश्यक होगा।
+</p>
+
+</div>
+
+</div>
+
+
+<!-- EARNINGS -->
+<div id="earningsPage" class="hidden">
+
+<div class="card">
+
+<h2>💰 Earnings</h2>
+
+<h1>
+₹ <span id="earnings">0</span>
+</h1>
+
+<p>
+Creator Share: <b>70%</b><br>
+Video Star: <b>30%</b>
+</p>
+
+<hr>
+
+<h2>💵 Monetization</h2>
+
+<p>
+👤 Followers:
+<b id="mFollowers">0</b> / 10,000
+</p>
+
+<div class="progress">
+<div id="followerProgress"></div>
+</div>
+
+<p>
+👁️ Valid Views:
+<b id="mViews">0</b> / 100,000
+</p>
+
+<div class="progress">
+<div id="viewProgress"></div>
+</div>
+
+<p>
+🎥 Original Videos:
+<b id="mVideos">0</b> / 10
+</p>
+
+<div class="progress">
+<div id="videoProgress"></div>
+</div>
+
+<p>
+📅 Account Age:
+<b id="accountAge">0</b> / 30 Days
+</p>
+
+<p id="monetizationStatus"></p>
+
+<button onclick="applyMonetization()">
+💵 Monetization Apply
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📌 Rules</h3>
+
+<p class="small">
+10,000 Followers<br>
+100,000 Valid Views in 30 Days<br>
+10 Original Videos<br>
+30 Days Account Age<br>
+No Serious Policy/Copyright Violation
+</p>
+
+</div>
+
+</div>
+
 
 <!-- PROFILE -->
-<section id="profilePage" class="hidden">
+<div id="profilePage" class="hidden">
+
 <div class="card">
-<h1>My Profile 👤</h1>
-<p><b>नाम:</b> <span id="profileName"></span></p>
-<p><b>Email:</b> <span id="profileEmail"></span></p>
-<button class="primary" onclick="logout()">Logout</button>
+
+<h2>👤 My Profile</h2>
+
+<p>
+नाम:
+<b id="profileName"></b>
+</p>
+
+<p>
+Email:
+<b id="profileEmail"></b>
+</p>
+
+<hr>
+
+<p>
+👤 Followers:
+<b id="profileFollowers"></b>
+</p>
+
+<p>
+🎥 Videos:
+<b id="profileVideos"></b>
+</p>
+
+<p>
+👁️ Views:
+<b id="profileViews"></b>
+</p>
+
+<p>
+⭐ Stars:
+<b id="profileStars"></b>
+</p>
+
+<button onclick="followDemo()">
+➕ Follow
+</button>
+
+<button onclick="showAdmin()">
+👑 Admin Panel
+</button>
+
+<button class="danger"
+onclick="logout()">
+🚪 Logout
+</button>
+
 </div>
+
+</div>
+
+
+<!-- ADMIN -->
+<div id="adminPage" class="hidden">
+
+<div class="card">
+
+<h2>👑 Admin Panel</h2>
+
+<h3>🛡️ Video Review</h3>
+
+<div id="adminVideos"></div>
+
+<hr>
+
+<h3>💵 Monetization Applications</h3>
+
+<div id="adminApplications"></div>
+
+<button class="secondary"
+onclick="showPage('profilePage')">
+⬅️ Profile
+</button>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+<div class="nav">
+
+<button onclick="showPage('homePage')">
+🏠<br>Home
+</button>
+
+<button onclick="showPage('uploadPage')">
+🎥<br>Upload
+</button>
+
+<button onclick="showPage('starsPage')">
+⭐<br>Stars
+</button>
+
+<button onclick="showPage('earningsPage')">
+💰<br>Earnings
+</button>
+
+<button onclick="showPage('profilePage')">
+👤<br>Profile
+</button>
+
+</div>
+
 </section>
 
 </div>
 
-<nav id="nav" class="hidden">
-<button onclick="showHome()">🏠<br>Home</button>
-<button onclick="showUpload()">➕<br>Upload</button>
-<button onclick="showEarnings()">💰<br>Earnings</button>
-<button onclick="showProfile()">👤<br>Profile</button>
-</nav>
-
-</div>
 
 <script>
 
+let currentUser=null;
+
+
+/* DATABASE */
+
 function getUsers(){
- return JSON.parse(localStorage.getItem("videoStarUsers") || "[]");
+return JSON.parse(
+localStorage.getItem("videoStarUsers")||"[]"
+);
 }
 
-function saveUsers(users){
- localStorage.setItem("videoStarUsers",JSON.stringify(users));
+function saveUsers(data){
+localStorage.setItem(
+"videoStarUsers",
+JSON.stringify(data)
+);
+}
+
+function getVideos(){
+return JSON.parse(
+localStorage.getItem("videoStarVideos")||"[]"
+);
+}
+
+function saveVideos(data){
+localStorage.setItem(
+"videoStarVideos",
+JSON.stringify(data)
+);
+}
+
+
+/* LOGIN */
+
+function showLogin(){
+
+loginPage.classList.remove("hidden");
+registerPage.classList.add("hidden");
+
 }
 
 function showRegister(){
- document.getElementById("loginPage").classList.add("hidden");
- document.getElementById("registerPage").classList.remove("hidden");
+
+loginPage.classList.add("hidden");
+registerPage.classList.remove("hidden");
+
 }
 
-function showLogin(){
- document.getElementById("registerPage").classList.add("hidden");
- document.getElementById("loginPage").classList.remove("hidden");
-}
 
 function register(){
 
- const name=document.getElementById("regName").value.trim();
- const email=document.getElementById("regEmail").value.trim().toLowerCase();
- const password=document.getElementById("regPassword").value;
+let name=regName.value.trim();
+let email=regEmail.value.trim();
+let password=regPassword.value;
 
- const msg=document.getElementById("registerMsg");
- msg.classList.remove("hidden");
+if(!name||!email||!password){
 
- if(!name || !email || !password){
-   msg.innerText="सभी जानकारी भरें।";
-   return;
- }
+registerMsg.innerHTML=
+'<span class="error">सभी जानकारी भरें।</span>';
 
- if(password.length < 6){
-   msg.innerText="Password कम से कम 6 अक्षर का रखें।";
-   return;
- }
-
- const users=getUsers();
-
- if(users.some(u=>u.email===email)){
-   msg.innerText="यह Email पहले से मौजूद है। Login करें।";
-   return;
- }
-
- users.push({
-   name:name,
-   email:email,
-   password:password
- });
-
- saveUsers(users);
-
- msg.innerText="Account बन गया! अब Login करें।";
-
- setTimeout(showLogin,800);
+return;
 }
+
+let users=getUsers();
+
+if(users.some(u=>u.email===email)){
+
+registerMsg.innerHTML=
+'<span class="error">यह Email पहले से मौजूद है।</span>';
+
+return;
+}
+
+let user={
+
+id:Date.now(),
+
+name:name,
+
+email:email,
+
+password:password,
+
+followers:0,
+
+videos:0,
+
+views:0,
+
+views30:0,
+
+earnings:0,
+
+stars:0,
+
+receivedStars:0,
+
+starHistory:[],
+
+createdAt:Date.now(),
+
+monetization:"Not Applied"
+
+};
+
+users.push(user);
+
+saveUsers(users);
+
+registerMsg.innerHTML=
+'<span class="success">Account बन गया। अब Login करें।</span>';
+
+setTimeout(showLogin,1000);
+
+}
+
+
+/* LOGIN */
 
 function login(){
 
- const email=document.getElementById("loginEmail").value.trim().toLowerCase();
- const password=document.getElementById("loginPassword").value;
+let email=loginEmail.value.trim();
 
- const msg=document.getElementById("loginMsg");
- msg.classList.remove("hidden");
+let password=loginPassword.value;
 
- const users=getUsers();
+let user=getUsers().find(
+u=>u.email===email &&
+u.password===password
+);
 
- const user=users.find(
-   u=>u.email===email && u.password===password
- );
+if(!user){
 
- if(!user){
-   msg.innerText="Email या Password गलत है।";
-   return;
- }
+loginMsg.innerHTML=
+'<span class="error">Email या Password गलत है।</span>';
 
- localStorage.setItem("videoStarCurrentUser",JSON.stringify(user));
-
- showHome();
+return;
 }
 
-function showHome(){
+currentUser=user;
 
- const user=JSON.parse(
-   localStorage.getItem("videoStarCurrentUser")
- );
+loginPage.classList.add("hidden");
 
- if(!user){
-   showLogin();
-   return;
- }
+registerPage.classList.add("hidden");
 
- document.getElementById("loginPage").classList.add("hidden");
- document.getElementById("registerPage").classList.add("hidden");
- document.getElementById("profilePage").classList.add("hidden");
- document.getElementById("homePage").classList.remove("hidden");
+app.classList.remove("hidden");
 
- document.getElementById("welcomeName").innerText=
-   "नमस्ते, "+user.name+"!";
+loadUser();
 
- document.getElementById("nav").classList.remove("hidden");
+showPage("homePage");
+
 }
 
-function showProfile(){
 
- const user=JSON.parse(
-   localStorage.getItem("videoStarCurrentUser")
- );
+/* USER */
 
- if(!user)return;
+function loadUser(){
 
- document.getElementById("homePage").classList.add("hidden");
- document.getElementById("profilePage").classList.remove("hidden");
+welcomeName.innerText=currentUser.name;
 
- document.getElementById("profileName").innerText=user.name;
- document.getElementById("profileEmail").innerText=user.email;
+followers.innerText=currentUser.followers;
+
+videos.innerText=currentUser.videos;
+
+views.innerText=currentUser.views;
+
+homeStars.innerText=currentUser.stars;
+
+myStars.innerText=currentUser.stars;
+
+receivedStars.innerText=
+currentUser.receivedStars||0;
+
+earnings.innerText=currentUser.earnings;
+
+profileName.innerText=currentUser.name;
+
+profileEmail.innerText=currentUser.email;
+
+profileFollowers.innerText=
+currentUser.followers;
+
+profileVideos.innerText=
+currentUser.videos;
+
+profileViews.innerText=
+currentUser.views;
+
+profileStars.innerText=
+currentUser.stars;
+
+updateMonetization();
+
+renderVideos();
+
+renderStars();
+
 }
 
-function showUpload(){
- alert("Upload feature अगला चरण है।");
+
+/* NAVIGATION */
+
+function showPage(id){
+
+let pages=[
+"homePage",
+"uploadPage",
+"starsPage",
+"earningsPage",
+"profilePage",
+"adminPage"
+];
+
+pages.forEach(p=>{
+document.getElementById(p)
+.classList.add("hidden");
+});
+
+document.getElementById(id)
+.classList.remove("hidden");
+
+if(id==="homePage")
+renderVideos();
+
+if(id==="starsPage")
+renderStars();
+
+if(id==="earningsPage")
+updateMonetization();
+
+if(id==="adminPage")
+renderAdmin();
+
 }
 
-function showEarnings(){
- alert("Earnings feature अगला चरण है।");
+
+/* UPLOAD */
+
+function uploadVideo(){
+
+let title=videoTitle.value.trim();
+
+let file=videoFile.files[0];
+
+if(!title||!file){
+
+uploadMsg.innerHTML=
+'<span class="error">वीडियो का नाम और Video चुनें।</span>';
+
+return;
 }
+
+
+/* BASIC DEMO SAFETY */
+
+let badWords=[
+
+"porn",
+"xxx",
+"sex",
+"nude",
+"nudity",
+"gore",
+"murder",
+"kill",
+"violence"
+
+];
+
+let text=
+(title+" "+file.name)
+.toLowerCase();
+
+if(badWords.some(w=>text.includes(w))){
+
+uploadMsg.innerHTML=
+'<span class="error">🚫 Safety Check में Video पास नहीं हुआ।</span>';
+
+return;
+}
+
+
+let videos=getVideos();
+
+videos.push({
+
+id:Date.now(),
+
+creatorId:currentUser.id,
+
+creator:currentUser.name,
+
+title:title,
+
+filename:file.name,
+
+views:0,
+
+likes:0,
+
+comments:[],
+
+reports:0,
+
+status:"Pending Review",
+
+createdAt:Date.now()
+
+});
+
+saveVideos(videos);
+
+currentUser.videos++;
+
+updateCurrentUser();
+
+loadUser();
+
+videoTitle.value="";
+
+videoFile.value="";
+
+uploadMsg.innerHTML=
+'<span class="success">🛡️ Video Safety Review में भेज दी गई है।</span>';
+
+}
+
+
+/* VIDEO FEED */
+
+function renderVideos(){
+
+let box=videoFeed;
+
+let list=getVideos();
+
+box.innerHTML="";
+
+if(list.length===0){
+
+box.innerHTML=
+'<div class="card">अभी कोई Video नहीं है। 🎥</div>';
+
+return;
+
+}
+
+list.forEach(v=>{
+
+if(v.status==="Removed")
+return;
+
+let div=document.createElement("div");
+
+div.className="video";
+
+div.innerHTML=`
+
+<b>🎬 ${escapeHTML(v.title)}</b>
+
+<p class="small">
+👤 ${escapeHTML(v.creator)}
+<br>
+स्थिति: ${v.status}
+</p>
+
+<div class="actions">
+
+<button onclick="likeVideo(${v.id})">
+❤️ ${v.likes}
+</button>
+
+<button onclick="commentVideo(${v.id})">
+💬 Comment
+</button>
+
+<button onclick="shareVideo()">
+🔗 Share
+</button>
+
+<button onclick="reportVideo(${v.id})">
+🚨 Report
+</button>
+
+</div>
+
+`;
+
+box.appendChild(div);
+
+});
+
+}
+
+
+/* LIKE */
+
+function likeVideo(id){
+
+let list=getVideos();
+
+let video=list.find(v=>v.id===id);
+
+if(!video)return;
+
+video.likes++;
+
+saveVideos(list);
+
+renderVideos();
+
+}
+
+
+/* COMMENT */
+
+function commentVideo(id){
+
+let text=prompt(
+"अपना Comment लिखें:"
+);
+
+if(!text)return;
+
+let list=getVideos();
+
+let video=list.find(v=>v.id===id);
+
+if(!video)return;
+
+video.comments.push({
+
+user:currentUser.name,
+
+text:text,
+
+date:Date.now()
+
+});
+
+saveVideos(list);
+
+alert("💬 Comment जोड़ दिया गया।");
+
+}
+
+
+/* SHARE */
+
+function shareVideo(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Video Star",
+
+text:"Video Star पर Video देखें",
+
+url:location.href
+
+});
+
+}else{
+
+navigator.clipboard.writeText(
+location.href
+);
+
+alert("🔗 Link Copy हो गया।");
+
+}
+
+}
+
+
+/* REPORT */
+
+function reportVideo(id){
+
+let reason=prompt(
+"Report का कारण लिखें:"
+);
+
+if(!reason)return;
+
+let list=getVideos();
+
+let video=list.find(v=>v.id===id);
+
+if(video){
+
+video.reports++;
+
+video.status="Reported";
+
+}
+
+saveVideos(list);
+
+alert(
+"🚨 Report Admin को भेज दी गई।"
+);
+
+renderVideos();
+
+}
+
+
+/* STARS */
+
+function sendStars(amount){
+
+currentUser.stars+=amount;
+
+currentUser.starHistory.push({
+
+amount:amount,
+
+date:new Date().toLocaleString()
+
+});
+
+updateCurrentUser();
+
+loadUser();
+
+alert(
+"⭐ "+amount+
+" Demo Stars भेजे गए।"
+);
+
+}
+
+
+function renderStars(){
+
+if(!currentUser.starHistory.length){
+
+starHistory.innerHTML=
+'<p class="small">अभी कोई History नहीं है।</p>';
+
+return;
+
+}
+
+starHistory.innerHTML=
+currentUser.starHistory
+.slice()
+.reverse()
+.map(s=>
+`<p>⭐ ${s.amount} Stars — ${s.date}</p>`
+)
+.join("");
+
+}
+
+
+/* FOLLOW DEMO */
+
+function followDemo(){
+
+alert(
+"➕ Follow system का Demo तैयार है।"
+);
+
+}
+
+
+/* MONETIZATION */
+
+function updateMonetization(){
+
+let age=Math.floor(
+(Date.now()-currentUser.createdAt)
+/
+86400000
+);
+
+let f=currentUser.followers;
+
+let v=currentUser.views30;
+
+let n=currentUser.videos;
+
+mFollowers.innerText=f;
+
+mViews.innerText=v;
+
+mVideos.innerText=n;
+
+accountAge.innerText=age;
+
+followerProgress.style.width=
+Math.min(f/10000*100,100)+"%";
+
+viewProgress.style.width=
+Math.min(v/100000*100,100)+"%";
+
+videoProgress.style.width=
+Math.min(n/10*100,100)+"%";
+
+
+if(currentUser.monetization==="Approved"){
+
+monetizationStatus.innerHTML=
+'<span class="success">✅ Monetization Approved</span>';
+
+}
+
+else if(currentUser.monetization==="Pending"){
+
+monetizationStatus.innerHTML=
+'<span class="warning">⏳ Admin Review में</span>';
+
+}
+
+else if(
+f>=10000 &&
+v>=100000 &&
+n>=10 &&
+age>=30
+){
+
+monetizationStatus.innerHTML=
+'<span class="success">🎉 आप Eligible हैं।</span>';
+
+}
+
+else{
+
+monetizationStatus.innerHTML=
+'<span class="warning">अभी Eligibility पूरी नहीं हुई।</span>';
+
+}
+
+}
+
+
+/* APPLY */
+
+function applyMonetization(){
+
+let age=Math.floor(
+(Date.now()-currentUser.createdAt)
+/
+86400000
+);
+
+if(
+currentUser.followers<10000 ||
+currentUser.views30<100000 ||
+currentUser.videos<10 ||
+age<30
+){
+
+alert(
+"Eligibility पूरी होने पर Apply कर सकते हैं।"
+);
+
+return;
+
+}
+
+currentUser.monetization="Pending";
+
+updateCurrentUser();
+
+loadUser();
+
+alert(
+"💵 Application Admin Review में भेज दी गई।"
+);
+
+}
+
+
+/* ADMIN */
+
+function showAdmin(){
+
+showPage("adminPage");
+
+}
+
+
+function renderAdmin(){
+
+let list=getVideos();
+
+if(list.length===0){
+
+adminVideos.innerHTML=
+"<p>कोई Video नहीं है।</p>";
+
+}
+
+else{
+
+adminVideos.innerHTML=
+list
+.filter(v=>v.status!=="Removed")
+.map(v=>`
+
+<div class="card">
+
+<b>🎬 ${escapeHTML(v.title)}</b>
+
+<p class="small">
+
+Creator:
+${escapeHTML(v.creator)}
+
+<br>
+
+Status:
+${v.status}
+
+<br>
+
+Reports:
+${v.reports}
+
+</p>
+
+<button onclick="approveVideo(${v.id})">
+✅ Approve Video
+</button>
+
+<button
+class="danger"
+onclick="removeVideo(${v.id})">
+
+🚫 Remove Video
+
+</button>
+
+</div>
+
+`)
+.join("");
+
+}
+
+
+let users=getUsers();
+
+let pending=users.filter(
+u=>u.monetization==="Pending"
+);
+
+if(pending.length===0){
+
+adminApplications.innerHTML=
+"<p>कोई Monetization Application नहीं है।</p>";
+
+}
+
+else{
+
+adminApplications.innerHTML=
+pending.map(u=>`
+
+<div class="card">
+
+<b>👤 ${escapeHTML(u.name)}</b>
+
+<p>
+
+Followers:
+${u.followers}
+
+<br>
+
+Videos:
+${u.videos}
+
+<br>
+
+Views:
+${u.views30}
+
+</p>
+
+<button onclick="approveMonetization(${u.id})">
+✅ Approve
+</button>
+
+<button
+class="danger"
+onclick="rejectMonetization(${u.id})">
+
+❌ Reject
+
+</button>
+
+</div>
+
+`)
+.join("");
+
+}
+
+}
+
+
+/* APPROVE VIDEO */
+
+function approveVideo(id){
+
+let list=getVideos();
+
+let video=list.find(v=>v.id===id);
+
+if(video){
+
+video.status="Published";
+
+let users=getUsers();
+
+let creator=
+users.find(
+u=>u.id===video.creatorId
+);
+
+if(creator){
+
+creator.views++;
+
+creator.views30++;
+
+saveUsers(users);
+
+}
+
+}
+
+saveVideos(list);
+
+renderAdmin();
+
+renderVideos();
+
+}
+
+
+/* REMOVE VIDEO */
+
+function removeVideo(id){
+
+let list=getVideos();
+
+let video=list.find(v=>v.id===id);
+
+if(video){
+
+video.status="Removed";
+
+}
+
+saveVideos(list);
+
+alert(
+"🚫 Video Remove कर दी गई।"
+);
+
+renderAdmin();
+
+renderVideos();
+
+}
+
+
+/* MONETIZATION ADMIN */
+
+function approveMonetization(id){
+
+let list=getUsers();
+
+let user=list.find(u=>u.id===id);
+
+if(user){
+
+user.monetization="Approved";
+
+}
+
+saveUsers(list);
+
+alert(
+"✅ Monetization Approved."
+);
+
+renderAdmin();
+
+if(
+currentUser &&
+currentUser.id===id
+){
+
+currentUser=user;
+
+loadUser();
+
+}
+
+}
+
+
+function rejectMonetization(id){
+
+let list=getUsers();
+
+let user=list.find(u=>u.id===id);
+
+if(user){
+
+user.monetization="Rejected";
+
+}
+
+saveUsers(list);
+
+renderAdmin();
+
+}
+
+
+/* UPDATE USER */
+
+function updateCurrentUser(){
+
+let list=getUsers();
+
+let index=
+list.findIndex(
+u=>u.id===currentUser.id
+);
+
+if(index!==-1){
+
+list[index]=currentUser;
+
+saveUsers(list);
+
+}
+
+}
+
+
+/* LOGOUT */
 
 function logout(){
 
- localStorage.removeItem("videoStarCurrentUser");
+currentUser=null;
 
- document.getElementById("nav").classList.add("hidden");
- document.getElementById("homePage").classList.add("hidden");
- document.getElementById("profilePage").classList.add("hidden");
+app.classList.add("hidden");
 
- showLogin();
+showLogin();
+
 }
 
-window.onload=function(){
 
- const current=localStorage.getItem("videoStarCurrentUser");
+/* SAFE DISPLAY */
 
- if(current){
-   showHome();
- }else{
-   showLogin();
- }
+function escapeHTML(text){
 
-};
+return String(text)
+
+.replaceAll("&","&amp;")
+
+.replaceAll("<","&lt;")
+
+.replaceAll(">","&gt;")
+
+.replaceAll('"',"&quot;")
+
+.replaceAll("'","&#039;");
+
+}
+
+
+/* START */
+
+showLogin();
 
 </script>
 
