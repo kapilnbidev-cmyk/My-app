@@ -4,176 +4,320 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Video Star</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080b22;color:#fff;font-family:Arial,sans-serif}
-.app{max-width:500px;margin:auto;min-height:100vh;background:#10143a}
-header{padding:22px;text-align:center;background:linear-gradient(135deg,#151b58,#ff1681)}
-.logo{font-size:30px;font-weight:bold}
-.logo span{color:#ffd1ed}
+body{
+ margin:0;
+ background:#080b2d;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:22px;
+ text-align:center;
+ background:linear-gradient(90deg,#7516a8,#ff168d);
+}
+.logo{font-size:34px;font-weight:bold}
+.logo span{color:#ff72c0}
+.tag{margin-top:6px;font-size:18px}
+.app{max-width:500px;margin:auto;min-height:100vh}
 .page{padding:20px}
-.card{background:#191d49;border-radius:18px;padding:20px;margin-bottom:18px}
-h2{margin-top:0}
-input{width:100%;padding:14px;margin:7px 0;border:1px solid #555;border-radius:12px;background:#0e1230;color:white;font-size:16px}
-button{border:0;border-radius:25px;padding:14px 20px;font-size:16px;font-weight:bold;cursor:pointer}
-.primary{width:100%;background:linear-gradient(90deg,#ff1681,#9c35ff);color:#fff;margin-top:10px}
-.link{background:none;color:#ff72c0;width:100%;margin-top:10px}
+.card{
+ background:#191d49;
+ border-radius:20px;
+ padding:28px;
+}
+h1{margin-top:0}
+input{
+ width:100%;
+ padding:15px;
+ margin:8px 0;
+ border-radius:14px;
+ border:1px solid #777;
+ background:#0e1235;
+ color:white;
+ font-size:16px;
+}
+button{
+ width:100%;
+ padding:15px;
+ margin-top:12px;
+ border:0;
+ border-radius:28px;
+ font-size:17px;
+ font-weight:bold;
+}
+.primary{
+ background:linear-gradient(90deg,#ff168d,#a72cff);
+ color:white;
+}
+.link{
+ background:none;
+ color:#ff72c0;
+}
 .hidden{display:none}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:500px;width:100%;background:#11152f;display:flex;justify-content:space-around;padding:10px 3px}
-.nav button{background:none;color:white;padding:5px;font-size:12px}
-.reel{height:420px;border-radius:18px;background:linear-gradient(160deg,#293b70,#11152d);display:flex;align-items:center;justify-content:center;font-size:70px}
-.stats{display:flex;justify-content:space-around;text-align:center;margin:20px 0}
-.stat b{display:block;font-size:21px}
+.message{
+ margin-top:12px;
+ padding:10px;
+ border-radius:10px;
+ background:#292e60;
+}
+nav{
+ position:fixed;
+ bottom:0;
+ left:50%;
+ transform:translateX(-50%);
+ width:100%;
+ max-width:500px;
+ display:flex;
+ justify-content:space-around;
+ background:#111536;
+ padding:14px 5px;
+}
+nav button{
+ background:none;
+ color:white;
+ margin:0;
+ padding:5px;
+ font-size:14px;
+}
 </style>
 </head>
 
 <body>
+
 <div class="app">
 
 <header>
-<div class="logo">⭐ Video <span>Star</span></div>
-<small>हर Talent को मिले पहचान</small>
+ <div class="logo">⭐ Video <span>Star</span></div>
+ <div class="tag">हर Talent को मिले पहचान</div>
 </header>
 
+<div class="page">
+
 <!-- LOGIN -->
-<div id="login" class="page">
+<section id="loginPage">
 <div class="card">
-<h2>Welcome to Video Star 👋</h2>
+<h1>Welcome to Video Star 👋</h1>
 <p>अपने अकाउंट में Login करें</p>
 
 <input id="loginEmail" type="email" placeholder="Email">
 <input id="loginPassword" type="password" placeholder="Password">
 
 <button class="primary" onclick="login()">Login</button>
-<button class="link" onclick="show('signup')">Create New Account</button>
-</div>
-</div>
 
-<!-- SIGNUP -->
-<div id="signup" class="page hidden">
+<button class="link" onclick="showRegister()">
+Create New Account
+</button>
+
+<div id="loginMsg" class="message hidden"></div>
+</div>
+</section>
+
+<!-- REGISTER -->
+<section id="registerPage" class="hidden">
 <div class="card">
-<h2>Create New Account 🎉</h2>
+<h1>Create New Account 🎉</h1>
 
-<input id="name" placeholder="आपका नाम">
-<input id="email" type="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
+<input id="regName" placeholder="आपका नाम">
+<input id="regEmail" type="email" placeholder="Email">
+<input id="regPassword" type="password" placeholder="Password">
 
-<button class="primary" onclick="signup()">Create Account</button>
-<button class="link" onclick="show('login')">Already have an account? Login</button>
+<button class="primary" onclick="register()">
+Create Account
+</button>
+
+<button class="link" onclick="showLogin()">
+Already have an account? Login
+</button>
+
+<div id="registerMsg" class="message hidden"></div>
 </div>
-</div>
+</section>
 
 <!-- HOME -->
-<div id="home" class="page hidden">
-<h2>For You 🎬</h2>
-<div class="reel">▶️</div>
+<section id="homePage" class="hidden">
 <div class="card">
-<b id="welcomeName">Creator</b>
-<p>अपनी पहली वीडियो बनाइए और अपना Talent दिखाइए। ⭐</p>
-<button onclick="alert('Like ❤️')">❤️ Like</button>
-<button onclick="alert('Video Share 🔗')">↗ Share</button>
-</div>
-</div>
-
-<!-- PROFILE -->
-<div id="profile" class="page hidden">
-<div class="card" style="text-align:center">
-<div style="font-size:65px">👤</div>
-<h2 id="profileName">Creator</h2>
-<p id="profileEmail"></p>
-<div class="stats">
-<div class="stat"><b>0</b>Posts</div>
-<div class="stat"><b>0</b>Followers</div>
-<div class="stat"><b>0</b>Following</div>
-</div>
+<h1>Welcome to Video Star 👋</h1>
+<h2 id="welcomeName"></h2>
+<p>अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।</p>
 <button class="primary" onclick="logout()">Logout</button>
 </div>
-</div>
+</section>
 
-<!-- UPLOAD -->
-<div id="upload" class="page hidden">
+<!-- PROFILE -->
+<section id="profilePage" class="hidden">
 <div class="card">
-<h2>📤 Upload Video</h2>
-<input type="file" accept="video/*">
-<input placeholder="Video Caption">
-<button class="primary" onclick="alert('Demo: वीडियो तैयार है!')">Post Video</button>
+<h1>My Profile 👤</h1>
+<p><b>नाम:</b> <span id="profileName"></span></p>
+<p><b>Email:</b> <span id="profileEmail"></span></p>
+<button class="primary" onclick="logout()">Logout</button>
 </div>
+</section>
+
 </div>
 
-<!-- EARNINGS -->
-<div id="earnings" class="page hidden">
-<div class="card" style="text-align:center">
-<h2>💰 Earnings</h2>
-<p>Total Earnings</p>
-<h1>₹0</h1>
-<p>Monetization बाद में जोड़ी जाएगी।</p>
-</div>
-</div>
-
-<!-- NAVIGATION -->
-<div id="nav" class="nav hidden">
-<button onclick="show('home')">🏠<br>Home</button>
-<button onclick="show('upload')">➕<br>Upload</button>
-<button onclick="show('earnings')">💰<br>Earnings</button>
-<button onclick="show('profile')">👤<br>Profile</button>
-</div>
+<nav id="nav" class="hidden">
+<button onclick="showHome()">🏠<br>Home</button>
+<button onclick="showUpload()">➕<br>Upload</button>
+<button onclick="showEarnings()">💰<br>Earnings</button>
+<button onclick="showProfile()">👤<br>Profile</button>
+</nav>
 
 </div>
 
 <script>
-function show(id){
-document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
 
-if(id==='home'||id==='upload'||id==='earnings'||id==='profile'){
-document.getElementById('nav').classList.remove('hidden');
-}else{
-document.getElementById('nav').classList.add('hidden');
-}
-window.scrollTo(0,0);
+function getUsers(){
+ return JSON.parse(localStorage.getItem("videoStarUsers") || "[]");
 }
 
-function signup(){
-let name=document.getElementById('name').value.trim();
-let email=document.getElementById('email').value.trim();
-let password=document.getElementById('password').value;
-
-if(!name||!email||!password){
-alert('कृपया सभी जानकारी भरें');
-return;
+function saveUsers(users){
+ localStorage.setItem("videoStarUsers",JSON.stringify(users));
 }
 
-localStorage.setItem('vs_name',name);
-localStorage.setItem('vs_email',email);
-localStorage.setItem('vs_password',password);
+function showRegister(){
+ document.getElementById("loginPage").classList.add("hidden");
+ document.getElementById("registerPage").classList.remove("hidden");
+}
 
-alert('Account बन गया! अब Login करें।');
-show('login');
+function showLogin(){
+ document.getElementById("registerPage").classList.add("hidden");
+ document.getElementById("loginPage").classList.remove("hidden");
+}
+
+function register(){
+
+ const name=document.getElementById("regName").value.trim();
+ const email=document.getElementById("regEmail").value.trim().toLowerCase();
+ const password=document.getElementById("regPassword").value;
+
+ const msg=document.getElementById("registerMsg");
+ msg.classList.remove("hidden");
+
+ if(!name || !email || !password){
+   msg.innerText="सभी जानकारी भरें।";
+   return;
+ }
+
+ if(password.length < 6){
+   msg.innerText="Password कम से कम 6 अक्षर का रखें।";
+   return;
+ }
+
+ const users=getUsers();
+
+ if(users.some(u=>u.email===email)){
+   msg.innerText="यह Email पहले से मौजूद है। Login करें।";
+   return;
+ }
+
+ users.push({
+   name:name,
+   email:email,
+   password:password
+ });
+
+ saveUsers(users);
+
+ msg.innerText="Account बन गया! अब Login करें।";
+
+ setTimeout(showLogin,800);
 }
 
 function login(){
-let email=document.getElementById('loginEmail').value.trim();
-let password=document.getElementById('loginPassword').value;
 
-let savedEmail=localStorage.getItem('vs_email');
-let savedPassword=localStorage.getItem('vs_password');
+ const email=document.getElementById("loginEmail").value.trim().toLowerCase();
+ const password=document.getElementById("loginPassword").value;
 
-if(email===savedEmail && password===savedPassword){
-let name=localStorage.getItem('vs_name') || 'Creator';
+ const msg=document.getElementById("loginMsg");
+ msg.classList.remove("hidden");
 
-document.getElementById('welcomeName').innerText=name;
-document.getElementById('profileName').innerText=name;
-document.getElementById('profileEmail').innerText=email;
+ const users=getUsers();
 
-show('home');
-}else{
-alert('Email या Password गलत है');
+ const user=users.find(
+   u=>u.email===email && u.password===password
+ );
+
+ if(!user){
+   msg.innerText="Email या Password गलत है।";
+   return;
+ }
+
+ localStorage.setItem("videoStarCurrentUser",JSON.stringify(user));
+
+ showHome();
 }
+
+function showHome(){
+
+ const user=JSON.parse(
+   localStorage.getItem("videoStarCurrentUser")
+ );
+
+ if(!user){
+   showLogin();
+   return;
+ }
+
+ document.getElementById("loginPage").classList.add("hidden");
+ document.getElementById("registerPage").classList.add("hidden");
+ document.getElementById("profilePage").classList.add("hidden");
+ document.getElementById("homePage").classList.remove("hidden");
+
+ document.getElementById("welcomeName").innerText=
+   "नमस्ते, "+user.name+"!";
+
+ document.getElementById("nav").classList.remove("hidden");
+}
+
+function showProfile(){
+
+ const user=JSON.parse(
+   localStorage.getItem("videoStarCurrentUser")
+ );
+
+ if(!user)return;
+
+ document.getElementById("homePage").classList.add("hidden");
+ document.getElementById("profilePage").classList.remove("hidden");
+
+ document.getElementById("profileName").innerText=user.name;
+ document.getElementById("profileEmail").innerText=user.email;
+}
+
+function showUpload(){
+ alert("Upload feature अगला चरण है।");
+}
+
+function showEarnings(){
+ alert("Earnings feature अगला चरण है।");
 }
 
 function logout(){
-show('login');
+
+ localStorage.removeItem("videoStarCurrentUser");
+
+ document.getElementById("nav").classList.add("hidden");
+ document.getElementById("homePage").classList.add("hidden");
+ document.getElementById("profilePage").classList.add("hidden");
+
+ showLogin();
 }
+
+window.onload=function(){
+
+ const current=localStorage.getItem("videoStarCurrentUser");
+
+ if(current){
+   showHome();
+ }else{
+   showLogin();
+ }
+
+};
+
 </script>
 
 </body>
