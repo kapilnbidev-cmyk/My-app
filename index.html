@@ -4,127 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Video Star</title>
-
 <style>
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#080d1b;
-color:#fff
-}
-header{
-background:linear-gradient(135deg,#ff007a,#762cff);
-padding:18px;
-text-align:center;
-font-size:25px;
-font-weight:bold;
-}
-.container{
-max-width:650px;
-margin:auto;
-padding:15px 15px 90px
-}
-.card{
-background:#151d32;
-padding:18px;
-border-radius:18px;
-margin:15px 0;
-box-shadow:0 5px 20px #0006
-}
-input,textarea,button{
-width:100%;
-padding:13px;
-margin:7px 0;
-border:0;
-border-radius:10px;
-font-size:15px
-}
-input,textarea{
-background:#252e46;
-color:white
-}
-button{
-background:linear-gradient(135deg,#ff007a,#762cff);
-color:white;
-font-weight:bold
-}
-.secondary{background:#29344e}
-.danger{background:#d7193f}
-.hidden{display:none}
-.logo{
-font-size:55px;
-text-align:center
-}
-.center{text-align:center}
-.small{
-font-size:12px;
-color:#aeb6ca
-}
-.success{color:#40e68b}
-.warning{color:#ffd447}
-.error{color:#ff5577}
-.stat{
-display:inline-block;
-background:#242d46;
-padding:9px;
-border-radius:10px;
-margin:3px
-}
-.nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#111729;
-display:flex;
-justify-content:space-around;
-padding:7px;
-z-index:20
-}
-.nav button{
-background:none;
-padding:5px 2px;
-margin:0;
-font-size:12px
-}
-.video{
-background:#101625;
-border-radius:15px;
-margin:15px 0;
-padding:14px
-}
-.video video{
-width:100%;
-max-height:450px;
-border-radius:12px;
-background:#000
-}
-.actions{
-display:flex;
-gap:5px
-}
-.actions button{
-background:#252e46;
-font-size:12px;
-margin:4px 0
-}
-.progress{
-height:12px;
-background:#30384d;
-border-radius:20px;
-overflow:hidden
-}
-.progress div{
-height:100%;
-background:linear-gradient(90deg,#ff007a,#762cff);
-width:0%
-}
-hr{
-border:0;
-border-top:1px solid #30384d;
-margin:18px 0
-}
+body{margin:0;background:#080d1b;color:#fff;font-family:Arial,sans-serif}
+header{background:linear-gradient(135deg,#ff007a,#762cff);padding:18px;text-align:center;font-size:25px;font-weight:bold}
+.container{max-width:650px;margin:auto;padding:15px 15px 90px}
+.card{background:#151d32;padding:18px;border-radius:18px;margin:15px 0;box-shadow:0 5px 20px #0006}
+input,button,textarea{width:100%;padding:13px;margin:7px 0;border:0;border-radius:10px;font-size:15px}
+input,textarea{background:#252e46;color:#fff}
+button{background:linear-gradient(135deg,#ff007a,#762cff);color:#fff;font-weight:bold}
+.secondary{background:#29344e}.danger{background:#d7193f}
+.hidden{display:none}.center{text-align:center}.logo{font-size:55px;text-align:center}
+.small{font-size:12px;color:#aeb6ca}.success{color:#40e68b}.warning{color:#ffd447}.error{color:#ff5577}
+.stat{display:inline-block;background:#242d46;padding:9px;border-radius:10px;margin:3px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#111729;display:flex;justify-content:space-around;padding:7px;z-index:20}
+.nav button{background:none;padding:5px 2px;margin:0;font-size:12px}
+.video{background:#101625;border-radius:15px;margin:15px 0;padding:14px}
+.actions{display:flex;gap:5px}.actions button{background:#252e46;font-size:12px;margin:4px 0}
+.progress{height:12px;background:#30384d;border-radius:20px;overflow:hidden}
+.progress div{height:100%;background:linear-gradient(90deg,#ff007a,#762cff);width:0}
+hr{border:0;border-top:1px solid #30384d;margin:18px 0}
 </style>
 </head>
 
@@ -136,453 +35,258 @@ margin:18px 0
 
 <!-- LOGIN -->
 <section id="loginPage">
-
 <div class="card">
-
 <div class="logo">⭐</div>
-
 <h1 class="center">VIDEO STAR</h1>
-
 <p class="center">हर Talent को मिले पहचान</p>
 
-<input id="loginEmail"
-type="email"
-placeholder="Email">
-
-<input id="loginPassword"
-type="password"
-placeholder="Password">
+<input id="loginEmail" type="email" placeholder="Email">
+<input id="loginPassword" type="password" placeholder="Password">
 
 <button onclick="login()">🔐 Login</button>
-
-<button class="secondary"
-onclick="showRegister()">
-📝 Create New Account
-</button>
+<button class="secondary" onclick="showRegister()">📝 Create New Account</button>
 
 <p id="loginMsg"></p>
-
 </div>
-
 </section>
-
 
 <!-- REGISTER -->
 <section id="registerPage" class="hidden">
-
 <div class="card">
-
 <h2>📝 Create Account</h2>
 
-<input id="regName"
-placeholder="आपका नाम">
+<input id="regName" placeholder="आपका नाम">
+<input id="regEmail" type="email" placeholder="Email">
+<input id="regPassword" type="password" placeholder="Password">
 
-<input id="regEmail"
-type="email"
-placeholder="Email">
-
-<input id="regPassword"
-type="password"
-placeholder="Password">
-
-<button onclick="register()">
-✅ Account बनाएं
-</button>
-
-<button class="secondary"
-onclick="showLogin()">
-⬅️ Login पर जाएं
-</button>
+<button onclick="register()">✅ Account बनाएं</button>
+<button class="secondary" onclick="showLogin()">⬅️ Login पर जाएं</button>
 
 <p id="registerMsg"></p>
-
 </div>
-
 </section>
 
-
-<!-- MAIN APP -->
+<!-- APP -->
 <section id="app" class="hidden">
-
 
 <!-- HOME -->
 <div id="homePage">
-
 <div class="card">
 
-<h2>
-नमस्ते,
-<span id="welcomeName"></span> 👋
-</h2>
+<h2>नमस्ते, <span id="welcomeName"></span> 👋</h2>
 
-<p>
-अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।
-</p>
+<p>अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।</p>
 
-<span class="stat">
-👤 <span id="followers">0</span>
-Followers
-</span>
-
-<span class="stat">
-🎥 <span id="videos">0</span>
-Videos
-</span>
-
-<span class="stat">
-👁️ <span id="views">0</span>
-Views
-</span>
-
-<span class="stat">
-⭐ <span id="homeStars">0</span>
-Stars
-</span>
+<span class="stat">👤 <span id="followers">0</span> Followers</span>
+<span class="stat">🎥 <span id="videos">0</span> Videos</span>
+<span class="stat">👁️ <span id="views">0</span> Views</span>
+<span class="stat">⭐ <span id="homeStars">0</span> Stars</span>
 
 </div>
 
-
 <div class="card">
-
 <h2>🎬 Video Feed</h2>
-
 <div id="videoFeed"></div>
-
 </div>
-
 </div>
-
 
 <!-- UPLOAD -->
 <div id="uploadPage" class="hidden">
-
 <div class="card">
 
 <h2>🎥 Video Upload</h2>
 
-<input
-id="videoTitle"
-placeholder="वीडियो का नाम">
-
-<input
-id="videoFile"
-type="file"
-accept="video/*">
+<input id="videoTitle" placeholder="वीडियो का नाम">
+<input id="videoFile" type="file" accept="video/*">
 
 <div class="card">
-
 <h3>🛡️ Safety Rules</h3>
-
 <p class="small">
-✅ बच्चों की सामान्य Talent/Family वीडियो Allowed हैं।<br><br>
+✅ बच्चों की सामान्य वीडियो Allowed हैं।<br><br>
 🚫 नग्न वीडियो नहीं<br>
 🚫 अश्लील/यौन वीडियो नहीं<br>
 🚫 Graphic blood/gore नहीं<br>
 🚫 हिंसा को बढ़ावा देने वाला Content नहीं<br>
-🚫 चोरी की Copyright वीडियो नहीं<br>
-🚫 Fake Views/Likes नहीं
+🚫 चोरी की Copyright वीडियो नहीं
 </p>
-
 </div>
 
-<button onclick="uploadVideo()">
-🛡️ Safety Check & Publish
-</button>
-
+<button onclick="uploadVideo()">🛡️ Safety Check</button>
 <p id="uploadMsg"></p>
 
 </div>
-
 </div>
-
 
 <!-- STARS -->
 <div id="starsPage" class="hidden">
-
 <div class="card">
 
 <h2>⭐ Stars</h2>
 
-<h3>
-आपके Stars:
-<span id="myStars">0</span>
-</h3>
+<h3>आपके Stars: <span id="myStars">0</span></h3>
 
-<button onclick="sendStars(1)">
-⭐ 1 Star भेजें
-</button>
-
-<button onclick="sendStars(5)">
-⭐ 5 Stars भेजें
-</button>
+<button onclick="sendStars(1)">⭐ 1 Star भेजें</button>
+<button onclick="sendStars(5)">⭐ 5 Stars भेजें</button>
 
 <hr>
 
-<h3>
-📥 Received Stars
-</h3>
+<h3>📥 Received Stars</h3>
+<p>⭐ <span id="receivedStars">0</span></p>
 
-<p>
-⭐ <span id="receivedStars">0</span>
-</p>
-
-<h3>
-📜 Star History
-</h3>
-
+<h3>📜 Star History</h3>
 <div id="starHistory"></div>
 
-<p class="small">
-Demo Stars हैं। Real Stars और Real Money के लिए
-Backend और Payment System आवश्यक होगा।
-</p>
+<p class="small">अभी Demo Stars हैं।</p>
 
 </div>
-
 </div>
-
 
 <!-- EARNINGS -->
 <div id="earningsPage" class="hidden">
-
 <div class="card">
 
 <h2>💰 Earnings</h2>
+<h1>₹ <span id="earnings">0</span></h1>
 
-<h1>
-₹ <span id="earnings">0</span>
-</h1>
-
-<p>
-Creator Share: <b>70%</b><br>
-Video Star: <b>30%</b>
-</p>
+<p>Creator Share: <b>70%</b><br>Video Star: <b>30%</b></p>
 
 <hr>
 
 <h2>💵 Monetization</h2>
 
-<p>
-👤 Followers:
-<b id="mFollowers">0</b> / 10,000
-</p>
+<p>👤 Followers: <b id="mFollowers">0</b> / 10,000</p>
+<div class="progress"><div id="followerProgress"></div></div>
 
-<div class="progress">
-<div id="followerProgress"></div>
-</div>
+<p>👁️ Valid Views: <b id="mViews">0</b> / 100,000</p>
+<div class="progress"><div id="viewProgress"></div></div>
 
-<p>
-👁️ Valid Views:
-<b id="mViews">0</b> / 100,000
-</p>
+<p>🎥 Original Videos: <b id="mVideos">0</b> / 10</p>
+<div class="progress"><div id="videoProgress"></div></div>
 
-<div class="progress">
-<div id="viewProgress"></div>
-</div>
-
-<p>
-🎥 Original Videos:
-<b id="mVideos">0</b> / 10
-</p>
-
-<div class="progress">
-<div id="videoProgress"></div>
-</div>
-
-<p>
-📅 Account Age:
-<b id="accountAge">0</b> / 30 Days
-</p>
+<p>📅 Account Age: <b id="accountAge">0</b> / 30 Days</p>
 
 <p id="monetizationStatus"></p>
 
-<button onclick="applyMonetization()">
-💵 Monetization Apply
-</button>
+<button onclick="applyMonetization()">💵 Monetization Apply</button>
 
 </div>
-
-<div class="card">
-
-<h3>📌 Rules</h3>
-
-<p class="small">
-10,000 Followers<br>
-100,000 Valid Views in 30 Days<br>
-10 Original Videos<br>
-30 Days Account Age<br>
-No Serious Policy/Copyright Violation
-</p>
-
 </div>
-
-</div>
-
 
 <!-- PROFILE -->
 <div id="profilePage" class="hidden">
-
 <div class="card">
 
 <h2>👤 My Profile</h2>
 
-<p>
-नाम:
-<b id="profileName"></b>
-</p>
-
-<p>
-Email:
-<b id="profileEmail"></b>
-</p>
+<p>नाम: <b id="profileName">-</b></p>
+<p>Email: <b id="profileEmail">-</b></p>
 
 <hr>
 
-<p>
-👤 Followers:
-<b id="profileFollowers"></b>
-</p>
+<p>👤 Followers: <b id="profileFollowers">0</b></p>
+<p>🎥 Videos: <b id="profileVideos">0</b></p>
+<p>👁️ Views: <b id="profileViews">0</b></p>
+<p>⭐ Stars: <b id="profileStars">0</b></p>
 
-<p>
-🎥 Videos:
-<b id="profileVideos"></b>
-</p>
-
-<p>
-👁️ Views:
-<b id="profileViews"></b>
-</p>
-
-<p>
-⭐ Stars:
-<b id="profileStars"></b>
-</p>
-
-<button onclick="followDemo()">
-➕ Follow
-</button>
-
-<button onclick="showAdmin()">
-👑 Admin Panel
-</button>
-
-<button class="danger"
-onclick="logout()">
-🚪 Logout
-</button>
+<button onclick="showAdmin()">👑 Admin Panel</button>
+<button class="danger" onclick="logout()">🚪 Logout</button>
 
 </div>
-
 </div>
-
 
 <!-- ADMIN -->
 <div id="adminPage" class="hidden">
-
 <div class="card">
 
 <h2>👑 Admin Panel</h2>
 
 <h3>🛡️ Video Review</h3>
-
 <div id="adminVideos"></div>
 
 <hr>
 
 <h3>💵 Monetization Applications</h3>
-
 <div id="adminApplications"></div>
 
-<button class="secondary"
-onclick="showPage('profilePage')">
+<button class="secondary" onclick="showPage('profilePage')">
 ⬅️ Profile
 </button>
 
 </div>
-
 </div>
 
-
-<!-- BOTTOM NAV -->
+<!-- NAV -->
 <div class="nav">
-
-<button onclick="showPage('homePage')">
-🏠<br>Home
-</button>
-
-<button onclick="showPage('uploadPage')">
-🎥<br>Upload
-</button>
-
-<button onclick="showPage('starsPage')">
-⭐<br>Stars
-</button>
-
-<button onclick="showPage('earningsPage')">
-💰<br>Earnings
-</button>
-
-<button onclick="showPage('profilePage')">
-👤<br>Profile
-</button>
-
+<button onclick="showPage('homePage')">🏠<br>Home</button>
+<button onclick="showPage('uploadPage')">🎥<br>Upload</button>
+<button onclick="showPage('starsPage')">⭐<br>Stars</button>
+<button onclick="showPage('earningsPage')">💰<br>Earnings</button>
+<button onclick="showPage('profilePage')">👤<br>Profile</button>
 </div>
 
 </section>
-
 </div>
-
 
 <script>
 
 let currentUser=null;
 
-
 /* DATABASE */
 
 function getUsers(){
-return JSON.parse(
-localStorage.getItem("videoStarUsers")||"[]"
-);
+return JSON.parse(localStorage.getItem("videoStarUsers")||"[]");
 }
 
 function saveUsers(data){
-localStorage.setItem(
-"videoStarUsers",
-JSON.stringify(data)
-);
+localStorage.setItem("videoStarUsers",JSON.stringify(data));
 }
 
 function getVideos(){
-return JSON.parse(
-localStorage.getItem("videoStarVideos")||"[]"
-);
+return JSON.parse(localStorage.getItem("videoStarVideos")||"[]");
 }
 
 function saveVideos(data){
-localStorage.setItem(
-"videoStarVideos",
-JSON.stringify(data)
-);
+localStorage.setItem("videoStarVideos",JSON.stringify(data));
 }
 
+/* OLD ACCOUNT FIX */
+
+function fixUser(u){
+
+u.followers=Number(u.followers)||0;
+u.videos=Number(u.videos)||0;
+u.views=Number(u.views)||0;
+u.views30=Number(u.views30)||0;
+u.earnings=Number(u.earnings)||0;
+u.stars=Number(u.stars)||0;
+u.receivedStars=Number(u.receivedStars)||0;
+
+if(!Array.isArray(u.starHistory)){
+u.starHistory=[];
+}
+
+if(!u.monetization){
+u.monetization="Not Applied";
+}
+
+if(!u.createdAt){
+u.createdAt=Date.now();
+}
+
+return u;
+}
 
 /* LOGIN */
 
 function showLogin(){
-
 loginPage.classList.remove("hidden");
 registerPage.classList.add("hidden");
-
 }
 
 function showRegister(){
-
 loginPage.classList.add("hidden");
 registerPage.classList.remove("hidden");
-
 }
-
 
 function register(){
 
@@ -591,150 +295,105 @@ let email=regEmail.value.trim();
 let password=regPassword.value;
 
 if(!name||!email||!password){
-
-registerMsg.innerHTML=
-'<span class="error">सभी जानकारी भरें।</span>';
-
+registerMsg.innerHTML='<span class="error">सभी जानकारी भरें।</span>';
 return;
 }
 
-let users=getUsers();
+let list=getUsers();
 
-if(users.some(u=>u.email===email)){
-
-registerMsg.innerHTML=
-'<span class="error">यह Email पहले से मौजूद है।</span>';
-
+if(list.some(u=>u.email===email)){
+registerMsg.innerHTML='<span class="error">यह Email पहले से मौजूद है।</span>';
 return;
 }
 
 let user={
-
 id:Date.now(),
-
 name:name,
-
 email:email,
-
 password:password,
-
 followers:0,
-
 videos:0,
-
 views:0,
-
 views30:0,
-
 earnings:0,
-
 stars:0,
-
 receivedStars:0,
-
 starHistory:[],
-
 createdAt:Date.now(),
-
 monetization:"Not Applied"
-
 };
 
-users.push(user);
-
-saveUsers(users);
+list.push(user);
+saveUsers(list);
 
 registerMsg.innerHTML=
 '<span class="success">Account बन गया। अब Login करें।</span>';
 
 setTimeout(showLogin,1000);
-
 }
-
 
 /* LOGIN */
 
 function login(){
 
 let email=loginEmail.value.trim();
-
 let password=loginPassword.value;
 
-let user=getUsers().find(
-u=>u.email===email &&
-u.password===password
+let list=getUsers();
+
+let user=list.find(
+u=>u.email===email&&u.password===password
 );
 
 if(!user){
-
 loginMsg.innerHTML=
 '<span class="error">Email या Password गलत है।</span>';
-
 return;
 }
 
-currentUser=user;
+currentUser=fixUser(user);
+updateCurrentUser();
 
 loginPage.classList.add("hidden");
-
 registerPage.classList.add("hidden");
-
 app.classList.remove("hidden");
 
 loadUser();
-
 showPage("homePage");
-
 }
 
-
-/* USER */
+/* LOAD */
 
 function loadUser(){
+
+if(!currentUser)return;
 
 welcomeName.innerText=currentUser.name;
 
 followers.innerText=currentUser.followers;
-
 videos.innerText=currentUser.videos;
-
 views.innerText=currentUser.views;
-
 homeStars.innerText=currentUser.stars;
 
 myStars.innerText=currentUser.stars;
-
-receivedStars.innerText=
-currentUser.receivedStars||0;
+receivedStars.innerText=currentUser.receivedStars;
 
 earnings.innerText=currentUser.earnings;
 
 profileName.innerText=currentUser.name;
-
 profileEmail.innerText=currentUser.email;
 
-profileFollowers.innerText=
-currentUser.followers;
-
-profileVideos.innerText=
-currentUser.videos;
-
-profileViews.innerText=
-currentUser.views;
-
-profileStars.innerText=
-currentUser.stars;
+profileFollowers.innerText=currentUser.followers;
+profileVideos.innerText=currentUser.videos;
+profileViews.innerText=currentUser.views;
+profileStars.innerText=currentUser.stars;
 
 updateMonetization();
-
 renderVideos();
-
 renderStars();
-
 }
 
-
-/* NAVIGATION */
+/* NAV */
 
 function showPage(id){
 
@@ -748,66 +407,38 @@ let pages=[
 ];
 
 pages.forEach(p=>{
-document.getElementById(p)
-.classList.add("hidden");
+document.getElementById(p).classList.add("hidden");
 });
 
-document.getElementById(id)
-.classList.remove("hidden");
+document.getElementById(id).classList.remove("hidden");
 
-if(id==="homePage")
-renderVideos();
-
-if(id==="starsPage")
-renderStars();
-
-if(id==="earningsPage")
-updateMonetization();
-
-if(id==="adminPage")
-renderAdmin();
-
+if(id==="homePage")renderVideos();
+if(id==="starsPage")renderStars();
+if(id==="earningsPage")updateMonetization();
+if(id==="adminPage")renderAdmin();
 }
-
 
 /* UPLOAD */
 
 function uploadVideo(){
 
 let title=videoTitle.value.trim();
-
 let file=videoFile.files[0];
 
 if(!title||!file){
-
 uploadMsg.innerHTML=
 '<span class="error">वीडियो का नाम और Video चुनें।</span>';
-
 return;
 }
 
-
-/* BASIC DEMO SAFETY */
-
-let badWords=[
-
-"porn",
-"xxx",
-"sex",
-"nude",
-"nudity",
-"gore",
-"murder",
-"kill",
-"violence"
-
+let bad=[
+"porn","xxx","sex","nude",
+"nudity","gore","murder","kill","violence"
 ];
 
-let text=
-(title+" "+file.name)
-.toLowerCase();
+let text=(title+" "+file.name).toLowerCase();
 
-if(badWords.some(w=>text.includes(w))){
+if(bad.some(w=>text.includes(w))){
 
 uploadMsg.innerHTML=
 '<span class="error">🚫 Safety Check में Video पास नहीं हुआ।</span>';
@@ -815,85 +446,60 @@ uploadMsg.innerHTML=
 return;
 }
 
+let list=getVideos();
 
-let videos=getVideos();
-
-videos.push({
-
+list.push({
 id:Date.now(),
-
 creatorId:currentUser.id,
-
 creator:currentUser.name,
-
 title:title,
-
 filename:file.name,
-
 views:0,
-
 likes:0,
-
 comments:[],
-
 reports:0,
-
 status:"Pending Review",
-
 createdAt:Date.now()
-
 });
 
-saveVideos(videos);
+saveVideos(list);
 
 currentUser.videos++;
-
 updateCurrentUser();
 
 loadUser();
 
 videoTitle.value="";
-
 videoFile.value="";
 
 uploadMsg.innerHTML=
-'<span class="success">🛡️ Video Safety Review में भेज दी गई है।</span>';
-
+'<span class="success">🛡️ Video Admin Review में भेज दी गई।</span>';
 }
 
-
-/* VIDEO FEED */
+/* VIDEOS */
 
 function renderVideos(){
 
 let box=videoFeed;
-
 let list=getVideos();
 
 box.innerHTML="";
 
-if(list.length===0){
-
+if(!list.length){
 box.innerHTML=
 '<div class="card">अभी कोई Video नहीं है। 🎥</div>';
-
 return;
-
 }
 
 list.forEach(v=>{
 
-if(v.status==="Removed")
-return;
+if(v.status==="Removed")return;
 
 let div=document.createElement("div");
-
 div.className="video";
 
 div.innerHTML=`
-
 <b>🎬 ${escapeHTML(v.title)}</b>
-
 <p class="small">
 👤 ${escapeHTML(v.creator)}
 <br>
@@ -903,7 +509,7 @@ div.innerHTML=`
 <div class="actions">
 
 <button onclick="likeVideo(${v.id})">
-❤️ ${v.likes}
+❤️ ${Number(v.likes)||0}
 </button>
 
 <button onclick="commentVideo(${v.id})">
@@ -919,67 +525,55 @@ div.innerHTML=`
 </button>
 
 </div>
-
 `;
 
 box.appendChild(div);
-
 });
-
 }
-
 
 /* LIKE */
 
 function likeVideo(id){
 
 let list=getVideos();
+let v=list.find(x=>x.id===id);
 
-let video=list.find(v=>v.id===id);
+if(!v)return;
 
-if(!video)return;
-
-video.likes++;
+v.likes=Number(v.likes)||0;
+v.likes++;
 
 saveVideos(list);
-
 renderVideos();
-
 }
-
 
 /* COMMENT */
 
 function commentVideo(id){
 
-let text=prompt(
-"अपना Comment लिखें:"
-);
+let text=prompt("अपना Comment लिखें:");
 
 if(!text)return;
 
 let list=getVideos();
+let v=list.find(x=>x.id===id);
 
-let video=list.find(v=>v.id===id);
+if(!v)return;
 
-if(!video)return;
+if(!Array.isArray(v.comments)){
+v.comments=[];
+}
 
-video.comments.push({
-
+v.comments.push({
 user:currentUser.name,
-
 text:text,
-
 date:Date.now()
-
 });
 
 saveVideos(list);
 
 alert("💬 Comment जोड़ दिया गया।");
-
 }
-
 
 /* SHARE */
 
@@ -988,96 +582,76 @@ function shareVideo(){
 if(navigator.share){
 
 navigator.share({
-
 title:"Video Star",
-
 text:"Video Star पर Video देखें",
-
 url:location.href
-
 });
 
 }else{
 
-navigator.clipboard.writeText(
-location.href
-);
+navigator.clipboard.writeText(location.href);
 
 alert("🔗 Link Copy हो गया।");
-
 }
-
 }
-
 
 /* REPORT */
 
 function reportVideo(id){
 
-let reason=prompt(
-"Report का कारण लिखें:"
-);
+let reason=prompt("Report का कारण लिखें:");
 
 if(!reason)return;
 
 let list=getVideos();
+let v=list.find(x=>x.id===id);
 
-let video=list.find(v=>v.id===id);
+if(v){
 
-if(video){
-
-video.reports++;
-
-video.status="Reported";
-
+v.reports=Number(v.reports)||0;
+v.reports++;
+v.status="Reported";
 }
 
 saveVideos(list);
 
-alert(
-"🚨 Report Admin को भेज दी गई।"
-);
+alert("🚨 Report Admin को भेज दी गई।");
 
 renderVideos();
-
 }
-
 
 /* STARS */
 
 function sendStars(amount){
 
+currentUser.stars=
+Number(currentUser.stars)||0;
+
 currentUser.stars+=amount;
 
+if(!Array.isArray(currentUser.starHistory)){
+currentUser.starHistory=[];
+}
+
 currentUser.starHistory.push({
-
 amount:amount,
-
 date:new Date().toLocaleString()
-
 });
 
 updateCurrentUser();
-
 loadUser();
 
-alert(
-"⭐ "+amount+
-" Demo Stars भेजे गए।"
-);
-
+alert("⭐ "+amount+" Demo Stars भेजे गए।");
 }
-
 
 function renderStars(){
 
 if(!currentUser.starHistory.length){
 
 starHistory.innerHTML=
-'<p class="small">अभी कोई History नहीं है।</p>';
+'<p class="small">अभी कोई Star History नहीं है।</p>';
 
 return;
-
 }
 
 starHistory.innerHTML=
@@ -1085,46 +659,26 @@ currentUser.starHistory
 .slice()
 .reverse()
 .map(s=>
-`<p>⭐ ${s.amount} Stars — ${s.date}</p>`
+`<p>⭐ ${Number(s.amount)||0} Stars — ${s.date}</p>`
 )
 .join("");
-
 }
-
-
-/* FOLLOW DEMO */
-
-function followDemo(){
-
-alert(
-"➕ Follow system का Demo तैयार है।"
-);
-
-}
-
 
 /* MONETIZATION */
 
 function updateMonetization(){
 
 let age=Math.floor(
-(Date.now()-currentUser.createdAt)
-/
-86400000
+(Date.now()-currentUser.createdAt)/86400000
 );
 
-let f=currentUser.followers;
-
-let v=currentUser.views30;
-
-let n=currentUser.videos;
+let f=Number(currentUser.followers)||0;
+let v=Number(currentUser.views30)||0;
+let n=Number(currentUser.videos)||0;
 
 mFollowers.innerText=f;
-
 mViews.innerText=v;
-
 mVideos.innerText=n;
-
 accountAge.innerText=age;
 
 followerProgress.style.width=
@@ -1136,57 +690,45 @@ Math.min(v/100000*100,100)+"%";
 videoProgress.style.width=
 Math.min(n/10*100,100)+"%";
 
-
 if(currentUser.monetization==="Approved"){
 
 monetizationStatus.innerHTML=
 '<span class="success">✅ Monetization Approved</span>';
 
-}
-
-else if(currentUser.monetization==="Pending"){
+}else if(currentUser.monetization==="Pending"){
 
 monetizationStatus.innerHTML=
 '<span class="warning">⏳ Admin Review में</span>';
 
-}
-
-else if(
-f>=10000 &&
-v>=100000 &&
-n>=10 &&
+}else if(
+f>=10000&&
+v>=100000&&
+n>=10&&
 age>=30
 ){
 
 monetizationStatus.innerHTML=
 '<span class="success">🎉 आप Eligible हैं।</span>';
 
-}
-
-else{
+}else{
 
 monetizationStatus.innerHTML=
 '<span class="warning">अभी Eligibility पूरी नहीं हुई।</span>';
-
 }
-
 }
-
 
 /* APPLY */
 
 function applyMonetization(){
 
 let age=Math.floor(
-(Date.now()-currentUser.createdAt)
-/
-86400000
+(Date.now()-currentUser.createdAt)/86400000
 );
 
 if(
-currentUser.followers<10000 ||
-currentUser.views30<100000 ||
-currentUser.videos<10 ||
+Number(currentUser.followers)<10000||
+Number(currentUser.views30)<100000||
+Number(currentUser.videos)<10||
 age<30
 ){
 
@@ -1195,43 +737,32 @@ alert(
 );
 
 return;
-
 }
 
 currentUser.monetization="Pending";
 
 updateCurrentUser();
-
 loadUser();
 
-alert(
-"💵 Application Admin Review में भेज दी गई।"
-);
-
+alert("💵 Application Admin Review में भेज दी गई।");
 }
-
 
 /* ADMIN */
 
 function showAdmin(){
-
 showPage("adminPage");
-
 }
-
 
 function renderAdmin(){
 
 let list=getVideos();
 
-if(list.length===0){
+if(!list.length){
 
 adminVideos.innerHTML=
 "<p>कोई Video नहीं है।</p>";
 
-}
-
-else{
+}else{
 
 adminVideos.innerHTML=
 list
@@ -1243,56 +774,39 @@ list
 <b>🎬 ${escapeHTML(v.title)}</b>
 
 <p class="small">
-
-Creator:
-${escapeHTML(v.creator)}
-
+Creator: ${escapeHTML(v.creator)}
 <br>
-
-Status:
-${v.status}
-
+Status: ${v.status}
 <br>
-
-Reports:
-${v.reports}
-
+Reports: ${Number(v.reports)||0}
 </p>
 
 <button onclick="approveVideo(${v.id})">
 ✅ Approve Video
 </button>
 
-<button
-class="danger"
+<button class="danger"
 onclick="removeVideo(${v.id})">
-
 🚫 Remove Video
-
 </button>
 
 </div>
-
 `)
 .join("");
-
 }
 
+let listUsers=getUsers();
 
-let users=getUsers();
-
-let pending=users.filter(
+let pending=listUsers.filter(
 u=>u.monetization==="Pending"
 );
 
-if(pending.length===0){
+if(!pending.length){
 
 adminApplications.innerHTML=
 "<p>कोई Monetization Application नहीं है।</p>";
 
-}
-
-else{
+}else{
 
 adminApplications.innerHTML=
 pending.map(u=>`
@@ -1302,43 +816,25 @@ pending.map(u=>`
 <b>👤 ${escapeHTML(u.name)}</b>
 
 <p>
-
-Followers:
-${u.followers}
-
-<br>
-
-Videos:
-${u.videos}
-
-<br>
-
-Views:
-${u.views30}
-
+Followers: ${Number(u.followers)||0}<br>
+Videos: ${Number(u.videos)||0}<br>
+Views: ${Number(u.views30)||0}
 </p>
 
 <button onclick="approveMonetization(${u.id})">
 ✅ Approve
 </button>
 
-<button
-class="danger"
+<button class="danger"
 onclick="rejectMonetization(${u.id})">
-
 ❌ Reject
-
 </button>
 
 </div>
 
-`)
-.join("");
-
+`).join("");
 }
-
 }
-
 
 /* APPROVE VIDEO */
 
@@ -1346,66 +842,55 @@ function approveVideo(id){
 
 let list=getVideos();
 
-let video=list.find(v=>v.id===id);
+let v=list.find(x=>x.id===id);
 
-if(video){
+if(v){
 
-video.status="Published";
+v.status="Published";
 
-let users=getUsers();
+let listUsers=getUsers();
 
-let creator=
-users.find(
-u=>u.id===video.creatorId
+let creator=listUsers.find(
+u=>u.id===v.creatorId
 );
 
 if(creator){
 
-creator.views++;
+creator.views=Number(creator.views)||0;
+creator.views30=Number(creator.views30)||0;
 
+creator.views++;
 creator.views30++;
 
-saveUsers(users);
-
+saveUsers(listUsers);
 }
-
 }
 
 saveVideos(list);
 
 renderAdmin();
-
 renderVideos();
-
 }
 
-
-/* REMOVE VIDEO */
+/* REMOVE */
 
 function removeVideo(id){
 
 let list=getVideos();
 
-let video=list.find(v=>v.id===id);
+let v=list.find(x=>x.id===id);
 
-if(video){
-
-video.status="Removed";
-
+if(v){
+v.status="Removed";
 }
 
 saveVideos(list);
 
-alert(
-"🚫 Video Remove कर दी गई।"
-);
+alert("🚫 Video Remove कर दी गई।");
 
 renderAdmin();
-
 renderVideos();
-
 }
-
 
 /* MONETIZATION ADMIN */
 
@@ -1413,76 +898,56 @@ function approveMonetization(id){
 
 let list=getUsers();
 
-let user=list.find(u=>u.id===id);
+let u=list.find(x=>x.id===id);
 
-if(user){
-
-user.monetization="Approved";
-
+if(u){
+u.monetization="Approved";
 }
 
 saveUsers(list);
 
-alert(
-"✅ Monetization Approved."
-);
-
 renderAdmin();
 
-if(
-currentUser &&
-currentUser.id===id
-){
+if(currentUser&&currentUser.id===id){
 
-currentUser=user;
-
+currentUser=fixUser(u);
 loadUser();
-
 }
 
 }
-
 
 function rejectMonetization(id){
 
 let list=getUsers();
 
-let user=list.find(u=>u.id===id);
+let u=list.find(x=>x.id===id);
 
-if(user){
-
-user.monetization="Rejected";
-
+if(u){
+u.monetization="Rejected";
 }
 
 saveUsers(list);
 
 renderAdmin();
-
 }
 
-
-/* UPDATE USER */
+/* UPDATE */
 
 function updateCurrentUser(){
 
 let list=getUsers();
 
-let index=
-list.findIndex(
+let index=list.findIndex(
 u=>u.id===currentUser.id
 );
 
 if(index!==-1){
 
-list[index]=currentUser;
+list[index]=fixUser(currentUser);
 
 saveUsers(list);
-
 }
-
 }
-
 
 /* LOGOUT */
 
@@ -1493,28 +958,19 @@ currentUser=null;
 app.classList.add("hidden");
 
 showLogin();
-
 }
 
-
-/* SAFE DISPLAY */
+/* SAFE TEXT */
 
 function escapeHTML(text){
 
 return String(text)
-
 .replaceAll("&","&amp;")
-
 .replaceAll("<","&lt;")
-
 .replaceAll(">","&gt;")
-
 .replaceAll('"',"&quot;")
-
 .replaceAll("'","&#039;");
-
 }
-
 
 /* START */
 
