@@ -2,43 +2,88 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Video Star</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>⭐ VIDEO STAR</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080d1b;color:#fff;font-family:Arial,sans-serif}
-header{background:linear-gradient(135deg,#ff007a,#762cff);padding:18px;text-align:center;font-size:25px;font-weight:bold}
-.container{max-width:650px;margin:auto;padding:15px 15px 90px}
-.card{background:#151d32;padding:18px;border-radius:18px;margin:15px 0;box-shadow:0 5px 20px #0006}
-input,button,textarea{width:100%;padding:13px;margin:7px 0;border:0;border-radius:10px;font-size:15px}
-input,textarea{background:#252e46;color:#fff}
-button{background:linear-gradient(135deg,#ff007a,#762cff);color:#fff;font-weight:bold}
-.secondary{background:#29344e}.danger{background:#d7193f}
-.hidden{display:none}.center{text-align:center}.logo{text-align:center;font-size:55px}
-.small{font-size:12px;color:#aeb6ca}.success{color:#40e68b}.warning{color:#ffd447}.error{color:#ff5577}
-.stat{display:inline-block;background:#242d46;padding:9px;border-radius:10px;margin:3px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#111729;display:flex;justify-content:space-around;padding:7px;z-index:20}
-.nav button{background:none;padding:5px 2px;margin:0;font-size:12px}
-.video{background:#101625;border-radius:15px;margin:15px 0;padding:14px}
-.video video{width:100%;max-height:500px;border-radius:12px;background:#000}
-.actions{display:flex;gap:5px}
-.actions button{background:#252e46;font-size:12px;margin:4px 0}
-.progress{height:12px;background:#30384d;border-radius:20px;overflow:hidden}
-.progress div{height:100%;background:linear-gradient(90deg,#ff007a,#762cff);width:0}
-hr{border:0;border-top:1px solid #30384d;margin:18px 0}
-.play{font-size:18px}
-</style>
-</head>
 
-<body>
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#070b18;
+ color:#fff
+}
 
-<header>⭐ VIDEO STAR</header>
+header{
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:linear-gradient(90deg,#f00078,#7b19ff);
+ padding:18px 16px;
+ text-align:center;
+ box-shadow:0 3px 15px #0008
+}
 
-<div class="container">
+.logo{
+ font-size:28px;
+ font-weight:800
+}
 
-<!-- LOGIN -->
-<section id="loginPage">
-<div class="card">
-<div class="logo">⭐</div>
-<h1 class="center">VIDEO STAR</h1>
-<p class="center">हर Talent को
+.sub{
+ font-size:13px;
+ margin-top:4px;
+ opacity:.9
+}
+
+.container{
+ max-width:700px;
+ margin:auto;
+ padding:18px 14px 40px
+}
+
+.card{
+ background:#121a31;
+ border:1px solid #263252;
+ border-radius:20px;
+ padding:18px;
+ margin-bottom:16px;
+ box-shadow:0 8px 25px #0005
+}
+
+.hero{
+ text-align:center;
+ padding:25px 15px
+}
+
+.star{
+ font-size:65px
+}
+
+h1{
+ margin:8px 0;
+ font-size:34px
+}
+
+h2{
+ margin:4px 0 14px;
+ font-size:22px
+}
+
+p{
+ color:#c9d1e7
+}
+
+input[type=file]{
+ display:none
+}
+
+.btn{
+ display:inline-block;
+ border:0;
+ border-radius:13px;
+ padding:13px 18px;
+ background:linear-gradient(90deg,#ff007b,#7b22ff);
+ color:white;
+ font-weight:bold;
+ font-size:16px
