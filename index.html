@@ -2,27 +2,28 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Video Star</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#080b22;color:white}
+body{margin:0;background:#080b22;color:#fff;font-family:Arial,sans-serif}
 .app{max-width:500px;margin:auto;min-height:100vh;background:#10143a}
-header{padding:18px;text-align:center;background:linear-gradient(135deg,#151b58,#ff1681)}
-.logo{font-size:32px;font-weight:bold}
-.logo span{color:#ff2a9d}
-.page{padding:18px}
+header{padding:22px;text-align:center;background:linear-gradient(135deg,#151b58,#ff1681)}
+.logo{font-size:30px;font-weight:bold}
+.logo span{color:#ffd1ed}
+.page{padding:20px}
 .card{background:#191d49;border-radius:18px;padding:20px;margin-bottom:18px}
-button{border:0;border-radius:25px;padding:14px 22px;font-size:16px;font-weight:bold;cursor:pointer}
-.primary{background:linear-gradient(90deg,#ff1681,#9c35ff);color:white;width:100%}
-input,textarea{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1px solid #555;background:#11152f;color:white}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:500px;width:100%;display:flex;justify-content:space-around;background:#11152f;padding:12px 5px;border-top:1px solid #333}
-.nav button{background:none;color:white;padding:6px;font-size:12px}
-.reel{height:520px;border-radius:20px;background:linear-gradient(160deg,#293b70,#11152d);display:flex;align-items:center;justify-content:center;font-size:70px;margin-bottom:15px}
-.stats{display:flex;justify-content:space-around;text-align:center;margin:20px 0}
-.stat b{display:block;font-size:22px}
+h2{margin-top:0}
+input{width:100%;padding:14px;margin:7px 0;border:1px solid #555;border-radius:12px;background:#0e1230;color:white;font-size:16px}
+button{border:0;border-radius:25px;padding:14px 20px;font-size:16px;font-weight:bold;cursor:pointer}
+.primary{width:100%;background:linear-gradient(90deg,#ff1681,#9c35ff);color:#fff;margin-top:10px}
+.link{background:none;color:#ff72c0;width:100%;margin-top:10px}
 .hidden{display:none}
-.earning{font-size:38px;font-weight:bold;color:#ff3baf;text-align:center}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:500px;width:100%;background:#11152f;display:flex;justify-content:space-around;padding:10px 3px}
+.nav button{background:none;color:white;padding:5px;font-size:12px}
+.reel{height:420px;border-radius:18px;background:linear-gradient(160deg,#293b70,#11152d);display:flex;align-items:center;justify-content:center;font-size:70px}
+.stats{display:flex;justify-content:space-around;text-align:center;margin:20px 0}
+.stat b{display:block;font-size:21px}
 </style>
 </head>
 
@@ -34,68 +35,84 @@ input,textarea{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1p
 <small>हर Talent को मिले पहचान</small>
 </header>
 
+<!-- LOGIN -->
 <div id="login" class="page">
 <div class="card">
-<h2>Welcome to Video Star</h2>
-<p>अपनी वीडियो बनाएं, शेयर करें और अपना Talent दिखाएं।</p>
-<input placeholder="Mobile Number">
-<input type="password" placeholder="Password">
-<button class="primary" onclick="show('home')">Login</button>
-<p style="text-align:center">या</p>
-<button class="primary" onclick="show('home')">Create New Account</button>
+<h2>Welcome to Video Star 👋</h2>
+<p>अपने अकाउंट में Login करें</p>
+
+<input id="loginEmail" type="email" placeholder="Email">
+<input id="loginPassword" type="password" placeholder="Password">
+
+<button class="primary" onclick="login()">Login</button>
+<button class="link" onclick="show('signup')">Create New Account</button>
 </div>
 </div>
 
+<!-- SIGNUP -->
+<div id="signup" class="page hidden">
+<div class="card">
+<h2>Create New Account 🎉</h2>
+
+<input id="name" placeholder="आपका नाम">
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button class="primary" onclick="signup()">Create Account</button>
+<button class="link" onclick="show('login')">Already have an account? Login</button>
+</div>
+</div>
+
+<!-- HOME -->
 <div id="home" class="page hidden">
 <h2>For You 🎬</h2>
 <div class="reel">▶️</div>
 <div class="card">
-<b>@VideoStar_Creator</b>
-<p>जिंदगी का सफर खूबसूरत है ✨</p>
-<button onclick="alert('Liked ❤️')">❤️ Like</button>
-<button onclick="alert('Shared 🔗')">↗ Share</button>
+<b id="welcomeName">Creator</b>
+<p>अपनी पहली वीडियो बनाइए और अपना Talent दिखाइए। ⭐</p>
+<button onclick="alert('Like ❤️')">❤️ Like</button>
+<button onclick="alert('Video Share 🔗')">↗ Share</button>
 </div>
 </div>
 
+<!-- PROFILE -->
+<div id="profile" class="page hidden">
+<div class="card" style="text-align:center">
+<div style="font-size:65px">👤</div>
+<h2 id="profileName">Creator</h2>
+<p id="profileEmail"></p>
+<div class="stats">
+<div class="stat"><b>0</b>Posts</div>
+<div class="stat"><b>0</b>Followers</div>
+<div class="stat"><b>0</b>Following</div>
+</div>
+<button class="primary" onclick="logout()">Logout</button>
+</div>
+</div>
+
+<!-- UPLOAD -->
 <div id="upload" class="page hidden">
 <div class="card">
 <h2>📤 Upload Video</h2>
 <input type="file" accept="video/*">
-<textarea placeholder="Add Caption"></textarea>
-<input placeholder="#video #videostar #trending">
-<button class="primary" onclick="alert('Video upload शुरू हो गया')">Post Video</button>
+<input placeholder="Video Caption">
+<button class="primary" onclick="alert('Demo: वीडियो तैयार है!')">Post Video</button>
 </div>
 </div>
 
-<div id="profile" class="page hidden">
-<div class="card" style="text-align:center">
-<div style="font-size:70px">👤</div>
-<h2>Kapil Dev</h2>
-<p>@kapil_creator</p>
-<div class="stats">
-<div class="stat"><b>125</b>Posts</div>
-<div class="stat"><b>18K</b>Followers</div>
-<div class="stat"><b>320</b>Following</div>
-</div>
-<button class="primary">Edit Profile</button>
-</div>
-</div>
-
+<!-- EARNINGS -->
 <div id="earnings" class="page hidden">
-<div class="card">
+<div class="card" style="text-align:center">
 <h2>💰 Earnings</h2>
 <p>Total Earnings</p>
-<div class="earning">₹12,450</div>
-<hr>
-<p>इस महीने: ₹4,320</p>
-<p>पिछला महीना: ₹3,980</p>
-<button class="primary" onclick="alert('Monetization information')">Learn More</button>
+<h1>₹0</h1>
+<p>Monetization बाद में जोड़ी जाएगी।</p>
 </div>
 </div>
 
-<div class="nav">
+<!-- NAVIGATION -->
+<div id="nav" class="nav hidden">
 <button onclick="show('home')">🏠<br>Home</button>
-<button onclick="show('home')">🎬<br>Reels</button>
 <button onclick="show('upload')">➕<br>Upload</button>
 <button onclick="show('earnings')">💰<br>Earnings</button>
 <button onclick="show('profile')">👤<br>Profile</button>
@@ -105,10 +122,59 @@ input,textarea{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1p
 
 <script>
 function show(id){
-document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));
+document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
 document.getElementById(id).classList.remove('hidden');
+
+if(id==='home'||id==='upload'||id==='earnings'||id==='profile'){
+document.getElementById('nav').classList.remove('hidden');
+}else{
+document.getElementById('nav').classList.add('hidden');
+}
 window.scrollTo(0,0);
 }
+
+function signup(){
+let name=document.getElementById('name').value.trim();
+let email=document.getElementById('email').value.trim();
+let password=document.getElementById('password').value;
+
+if(!name||!email||!password){
+alert('कृपया सभी जानकारी भरें');
+return;
+}
+
+localStorage.setItem('vs_name',name);
+localStorage.setItem('vs_email',email);
+localStorage.setItem('vs_password',password);
+
+alert('Account बन गया! अब Login करें।');
+show('login');
+}
+
+function login(){
+let email=document.getElementById('loginEmail').value.trim();
+let password=document.getElementById('loginPassword').value;
+
+let savedEmail=localStorage.getItem('vs_email');
+let savedPassword=localStorage.getItem('vs_password');
+
+if(email===savedEmail && password===savedPassword){
+let name=localStorage.getItem('vs_name') || 'Creator';
+
+document.getElementById('welcomeName').innerText=name;
+document.getElementById('profileName').innerText=name;
+document.getElementById('profileEmail').innerText=email;
+
+show('home');
+}else{
+alert('Email या Password गलत है');
+}
+}
+
+function logout(){
+show('login');
+}
 </script>
+
 </body>
 </html>
